@@ -1,12 +1,5 @@
 # Игнорирование папки с временными копиями
-Hardware/AltiumProject/History/
+hardware/History/
 
 # Игнорирование папки предпросмотра AD
-Hardware/AltiumProject/__Previews/
-
-#Игнорирование папки build для кода
-Firmware/ChargerMPPT/build/
-
-#Игнорирование настроечных файлов дебага
-Firmware/ChargerMPPT/.vscode/.cortex-debug.peripherals.state.json
-Firmware/ChargerMPPT/.vscode/.cortex-debug.registers.state.json
+hardware/__Previews/
