@@ -1,0 +1,7 @@
+r
+h
+loadbin build\mppt.bin, 0x00
+g
+verifybin build\mppt.bin, 0x00
+r
+q
