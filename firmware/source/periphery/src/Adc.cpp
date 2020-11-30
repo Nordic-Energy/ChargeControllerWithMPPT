@@ -57,7 +57,7 @@ void Adc::InitTimerEvent() {
     TIM6->PSC = 1-1;
     TIM6->ARR = 36;
     TIM6->CR2 |= TIM_CR2_MMS_1;         // Enable generation TRGO for ADC
-    TIM6->CR1  |= TIM_CR1_CEN;
+    TIM6->CR1 |= TIM_CR1_CEN;
 }
 
 /********************************************************************************
