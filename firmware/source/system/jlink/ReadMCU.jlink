@@ -1,4 +1,0 @@
-savebin build\LAN-Test.bin, 0x00, 0x4000
-r
-g
-q
