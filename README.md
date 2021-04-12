@@ -1,39 +1,48 @@
-# Контроллер заряда батареи с алгоритмом МРРТ
+# Solar charge controller with MPPT algorithm
 
-Контроллер заряда управляется с помощью специализированного микроконтроллера STM32F334C8T6 с высокоразрядным ШИМ-контроллером (HRPWM) на борту. Применение данного устройства возможно, как в роли отладочного комплекса для изучения алгоритмов поиска точки максимальной мощности (ТММ), так в качестве законченного устройства для работы в автономной солнечной электростанции мощностью до 500 Вт.
+The charge controller is controlled by a dedicated STM32F334C8T6 microcontroller with a High Resolution PWM (HRPWM) on board. The use of this device is possible a devkit for studying the algorithms for finding the maximum power point (TMM) and as a device for working in an solar power plant with a capacity of up to 500 W.
 
-![Фото МРРТ](https://habrastorage.org/webt/oc/bp/el/ocbpeld2qowp2waf9jkiha76g74.jpeg)
+![Photo of MPPT](https://habrastorage.org/webt/yq/tc/fj/yqtcfjic5fkabvp-xis7-gtjlge.jpeg)
 
 >
 
-![Фото МРРТ](https://habrastorage.org/webt/cs/g_/gp/csg_gpmgbpcenwr3dfon6lvfgie.jpeg)
+![Photo of MPPT](https://habrastorage.org/webt/du/by/js/dubyjsgjtipjnblorov5fmktdau.jpeg)
 
-При разработке контроллера заряда основной упор делается на создание надежной аппаратной части с применением лучших компонентов и на реализацию максимально эффективных алгоритмов поиска ТММ. В контроллере отсутствую электролитические конденсаторы, вместо них примененые твердотельные полимерные конденсаторы с повышенным сроком службы, а так же оптимизированы тепловые режимы работы устройства, что в комплексе позволит обеспечить гарантированный ресурс работы не менее 10 лет. Это приведет к увеличению надежности автономных мини-электростанций и снижению затрат на обслуживание оборудования.
+When developing a charge controller the main emphasis is on creating reliable hardware using the best components and on implementing the most efficient TMM search algorithms. There are no electrolytic capacitors in the controller, instead of them solid polymer capacitors with an increased service life are used and as well as the thermal modes of operation of the device are optimized. That together will provide a guaranteed service life of at least 10 years. This will increase the reliability of autonomous mini-power plants and reduce equipment maintenance costs.
 
-# Технические характеристики
+# Features:
 
-* Входное напряжение: *15...60В*
-* Выходное напряжение: *12/24В*
-* Выходной зарядный ток: *20А*
-* Стабилизация тока: *±0,5%*
-* Стабилизация напряжения: *±1%*
-* Рабочая частота: *100кГц*
-* КПД, не менее: *94%*
-* Алгоритмы МРРТ: *да*
-* Типы аккумуляторов: *SLA, AGM, GEL, Li-ion, LiFePo4, LTO*
-* Интерфейсы: *CAN, Wi-Fi*
-* Габаритные размеры: *136х70х26мм*
-* Масса устройства: *481 гр*
-* Температура эксплуатации: *-40...+85<sup>o</sup>C*
+* Use 32-bit ARM MCU STM32F334C8 with HRPWM
+* Voltage input: *15...60V*
+* Voltage output: *12/24V*
+* Max charge current: *20A*
+* Conversion frequency: *100kHz*
+* Efficiency: *>94%*
+* MPPT algorithm
+* Type battery: *SLA, AGM, GEL, Li-ion, LiFePo4, LTO*
+* Interface: *CAN, Wi-Fi*
 
-# Структура проекта
+# Built-in protection:
+* Overvoltage
+* Undervoltage
+* Overcurrent
+* Overheat
+* PV short circuit
+* PV reverse polarity
+* Battery reverse polarity
 
-* **hardware** - аппаратная часть устройства
-    * *docs* - документация на проект: ВОМ, принципиальная схема и прочее
-    * *hardware* - исходный проект PCB
-    * *manufacture* - gerber файлы для заказа ПП на производстве
-    * *mechanical* - исходный проект корпуса РЭА
+# Project structure:
 
-# Лицензирование
+* *docs* - documentation for project: ВОМ, schematic, etc
+* *hardware* - source project for design PCB
+* *manufacture* - gerber files for order PCB
+* *mechanical* - source project for 3D design
 
-Все исходные материалы для проекта распространяются по лицензии [MIT](./LICENSE "Описание лицензии"). Вы можете использовать проект в любом виде, в том числе и для коммерческой деятельности, но стоит помнить, что автор проекта не дает никаких гарантий на работоспособность устройства или частей проекта, а так же не несет никакой ответственности по искам или за нанесенный ущерб.
+# Firmware
+
+* [Universal firmware project for MPPT solar charge](https://github.com/RedCommissary/mppt-charger-firmware)
+* [Project HMI TFT display panel for controller](https://github.com/RedCommissary/display-tft-3.5)
+
+# License
+
+All source files for the project are distributed under the [MIT](./LICENSE "Text license") license and you can use the project for commercial activities. But you need remembering that the author of the project does not give any guarantees for the operability of the device or parts of the project and also does not bear no liability for claims or damages.
